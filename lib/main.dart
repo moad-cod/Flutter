@@ -7,19 +7,73 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});   // ✅ const constructor
 
-  final List<String> names = const ["karim", "shadow", "Vince"]; // ✅ const list
+  // final List<String> names = const ["karim", "shadow", "Vince"]; // ✅ const list
+
+  // functions & methods
+  void userTapped() {
+    print("User Tapped!"); 
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-         body: ListView.builder(
-          itemCount: names.length,
-          itemBuilder: (context, index) => ListTile(
-            title: Text(names[index]),
+        body: Center(
+          child: GestureDetector(
+            onTap: userTapped,
+            child: Container(
+              height: 200,
+              width: 200,
+              color: Colors.deepPurple[300],
+              child: Center(child: Text("Tap me!")),
+            ),
           ),
         )
+      // home: Scaffold(
+      //   body: Stack(
+      //     alignment: Alignment.bottomRight,
+      //     children: [
+      //       // big box
+      //       Container(
+      //         height: 300,
+      //         width: 300,
+      //         color: Colors.deepPurple,
+      //       ),
+
+      //       // medium box
+      //       Container(
+      //           height: 200,
+      //           width: 200,
+      //           color: Colors.deepPurple[400],
+      //         ),
+
+      //       // small box
+      //       Container(
+      //           height: 100,
+      //           width: 100,
+      //           color: Colors.deepPurple[200],
+      //         ),
+      //     ],
+      // )
+      // home: Scaffold(
+      //   body: GridView.builder(
+      //     itemCount: 64,
+      //     // How many in each row
+      //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+      //     itemBuilder: (context, index) => Container(
+      //       color: Colors.deepPurple,
+      //       margin: EdgeInsets.all(2),
+            
+      //     ),
+      // )
+      // home: Scaffold(
+      //    body: ListView.builder(
+      //     itemCount: names.length,
+      //     itemBuilder: (context, index) => ListTile(
+      //       title: Text(names[index]),
+      //     ),
+      //   )
         // backgroundColor: Colors.deepPurple[200],
         // appBar: AppBar(
         //   title: Text(
